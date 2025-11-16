@@ -1,22 +1,19 @@
 {
   "name": "crud-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CRUD API with in-memory database",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start:prod": "npm run build && node dist/server.js",
+    "start:multi": "ts-node src/cluster/clusterManager.ts",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write \"src/**/*.ts\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChigrinDmitry/crud-api.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": ["crud", "api", "nodejs"],
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChigrinDmitry/crud-api/issues"
-  },
-  "homepage": "https://github.com/ChigrinDmitry/crud-api#readme",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.1",
